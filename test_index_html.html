@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h>Test</h>
+    <form>
+        <label id="Xcord1">What is the value of </label>
+        <input type = "String" id = "Xcord1" name = "Xcord1">
+        <button>Submit</button>
+    </form>
+
+    <form>
+      <label id="Xcord2">What is the value of </label>
+      <input type = "String" id = "Xcord2" name = "Xcord2">
+      <button>Submit</button>
+    </form>
+
+    <h2 id="weather">Temp</h2>
+    <h2 id="wetrep">Temp</h2>
+    
+
+</body>
+
+<!-- <script>
+  let test = Xcord1.split("+")
+</script> -->
+
+<script>
+wetrep()
+    function wetrep() {
+      
+        axios({
+        method: 'get',
+        url: 'https://api.weather.gov/points/38.8894,-77.0352',
+      })
+      .then(function (response) {
+        apiresponse = response.data;
+      }).then(() => {
+        //console.log(apiresponse.properties.periods[0].temperature)
+        let wetrep = document.getElementById("wetrep")
+        wetrep.innerHTML = apiresponse.properties.periods[0].temperature
+      })
+
+      
+    }
+  </script>
+
+<script>
+
+    weather()
+        function weather() {
+          axios({
+            method: 'get',
+            // Use this link
+            url: 'https://api.weather.gov/gridpoints/TOP/31,80/forecast',
+          })
+          .then(function (response) {
+            apiresponse = response.data;
+          }).then(() => {
+            //console.log(apiresponse.properties.periods[0].temperature)
+            let weather = document.getElementById("weather")
+            weather.innerHTML = apiresponse.properties.periods[0].temperature
+          })
+        }
+    
+    </script>
+
+    <script>
+    let city = "well"
+    if(city == "well"){
+      let X1 = 90;
+      let X2 = 50;
+    }
+    </script>
+
+<!-- <script>
+    convert()
+        function convert() {
+          axios({
+            method: 'get',
+            url: 'http://dev.virtualearth.net/REST/v1/Locations/47.64054,-122.12934?includeEntityTypes=countryRegion&o=xml&key={BingMapsKey}',
+          })
+          .then(function (response) {
+            apiresponse = response.data;
+          }).then(() => {
+            //console.log(apiresponse.properties.periods[0].detailedForecast)
+            let convert = document.getElementById("covert")
+            convert.innerHTML = apiresponse.properties.periods[0].detailedForecast
+          })
+        }
+    
+    </script> -->
+
+</html>

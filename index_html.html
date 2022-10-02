@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h>Test</h>
+    <h2 id="weather">Temp</h2>
+    <h2 id="wetrep">Temp</h2>
+
+</body>
+<script>
+weather()
+    function weather() {
+      axios({
+        method: 'get',
+        url: 'https://api.weather.gov/gridpoints/TOP/31,80/forecast',
+      })
+      .then(function (response) {
+        apiresponse = response.data;
+      }).then(() => {
+        //console.log(apiresponse.properties.periods[0].temperature)
+        let weather = document.getElementById("weather")
+        weather.innerHTML = apiresponse.properties.periods[0].temperature
+      })
+    }
+
+</script>
+
+<script>
+    rain()
+        function rain() {
+          axios({
+            method: 'get',
+            url: 'https://api.weather.gov/gridpoints/TOP/31,80/forecast',
+          })
+          .then(function (response) {
+            apiresponse = response.data;
+          }).then(() => {
+            //console.log(apiresponse.properties.periods[0].detailedForecast)
+            let wetrep = document.getElementById("wetrep")
+            wetrep.innerHTML = apiresponse.properties.periods[0].detailedForecast
+          })
+        }
+    
+    </script>
+
+</html>
