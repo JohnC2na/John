@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <!-- IMPORT STUFF AND SET TITLE HERE-->
+  <head>
+    <title>John</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head> 
+
+  <!-- ANYTHING HERE SHOWS UP ON THE WEBSITE -->
+  <body>
+    <!-- Website Title/Date Card -->
+    <div class="card" style="margin-left: 0%; margin-right: 0%; margin-top: 0%;">
+      <div class="card-content">
+        <p class="title" style="text-align:center">forcast</p>
+        <div id="current_date" class="title" style="text-align:center"></p>
+          <script>
+            const date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDate();
+            let output = month + "/" + day + "/" + year;
+            document.getElementById("current_date").innerHTML = output;
+          </script>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="card" style="margin-left: 0%; margin-right: 0%; margin-top: 0%;">
+      <p id="location1">Location:__________</p>
+      <p id="event1">Event Time:__________</p>
+      <p id="temperature1">Temperature:__________</p>
+      <p id="sforcast1">Short Forcast:__________</p>
+      <p id="wind1">Wind Speed:__________</p>
+      </div>
+      <button class="create" onclick="creation(1)">Create Event</button>
+      <div id="myModal1" class="modal">
+        <div class="modal-content">
+          <form>
+            <span class="close">&times;</span>
+            <label for="locations">Choose a Location:</label>
+            <select name="locations1" id="locations1">
+              <option value="college_station">College Station</option>
+              <option value="bryan">Bryan</option>
+              <option value="millican">Millican</option>
+            </select>
+          </form>
+          <form>
+            Enter Time: <input type="text" id="timeInput1">
+          </form>
+          <button class="cancel" onclick="canceling()">Cancel</button>
+          <button class="submit" onclick="submission(1)">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" style="margin-left: 2%; margin-right: 2%; margin-top: 0%;">
+      <p id="location2">Location:__________</p>
+      <p id="event2">Event Time:__________</p>
+      <p id="temperature2">Temperature:__________</p>
+      <p id="sforcast2">Short Forcast:__________</p>
+      <p id="wind2">Wind Speed:__________</p>
+      </div>
+      <button class="create" onclick="creation(2)">Create Event</button>
+      <div id="myModal2" class="modal">
+        <div class="modal-content">
+          <form>
+            <span class="close">&times;</span>
+            <label for="locations">Choose a Location:</label>
+            <select name="locations2" id="locations2">
+              <option value="college_station">College Station</option>
+              <option value="bryan">Bryan</option>
+              <option value="millican">Millican</option>
+            </select>
+          </form>
+          <form>
+            Enter Time: <input type="text" id="timeInput2">
+          </form>
+          <button class="cancel">Cancel</button>
+          <button class="submit" onclick="submission(2)">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" style="margin-left: 2%; margin-right: 2%; margin-top: 0%;">
+      <p id="location3">Location:__________</p>
+      <p id="event3">Event Time:__________</p>
+      <p id="temperature3">Temperature:__________</p>
+      <p id="sforcast3">Short Forcast:__________</p>
+      <p id="wind3">Wind Speed:__________</p>
+      </div>
+      <button class="create" onclick="creation(3)">Create Event</button>
+      <div id="myModal3" class="modal">
+        <div class="modal-content">
+          <form>
+            <span class="close">&times;</span>
+            <label for="locations">Choose a Location:</label>
+            <select name="locations3" id="locations3">
+              <option value="college_station">College Station</option>
+              <option value="bryan">Bryan</option>
+              <option value="millican">Millican</option>
+            </select>
+          </form>
+          <form>
+            Enter Time: <input type="text" id="timeInput3">
+          </form>
+          <button class="cancel">Cancel</button>
+          <button class="submit" onclick="submission(3)">Submit</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card 4 -->
+    <div class="card" style="margin-left: 2%; margin-right: 2%; margin-top: 0%;">
+      <p id="location4">Location:__________</p>
+      <p id="event4">Event Time:__________</p>
+      <p id="temperature4">Temperature:__________</p>
+      <p id="sforcast4">Short Forcast:__________</p>
+      <p id="wind4">Wind Speed:__________</p>
+      </div>
+      <button class="create" onclick="creation(4)">Create Event</button>
+      <div id="myModal4" class="modal">
+        <div class="modal-content">
+          <form>
+            <span class="close">&times;</span>
+            <label for="locations">Choose a Location:</label>
+            <select name="locations4" id="locations4">
+              <option value="college_station">College Station</option>
+              <option value="bryan">Bryan</option>
+              <option value="millican">Millican</option>
+            </select>
+          </form>
+          <form>
+            Enter Time: <input type="text" id="timeInput4">
+          </form>
+          <button class="cancel">Cancel</button>
+          <button class="submit" onclick="submission(4)">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card" style="margin-left: 2%; margin-right: 2%; margin-top: 0%;">
+      <p id="location5">Location:__________</p>
+      <p id="event5">Event Time:__________</p>
+      <p id="temperature5">Temperature:__________</p>
+      <p id="sforcast5">Short Forcast:__________</p>
+      <p id="wind5">Wind Speed:__________</p>
+      </div>
+      <button class="create" onclick="creation(5)">Create Event</button>
+      <div id="myModal5" class="modal">
+        <div class="modal-content">
+          <form>
+            <span class="close">&times;</span>
+            <label for="locations">Choose a Location:</label>
+            <select name="locations5" id="locations5">
+              <option value="college_station">College Station</option>
+              <option value="bryan">Bryan</option>
+              <option value="millican">Millican</option>
+            </select>
+          </form>
+          <form>
+            Enter Time: <input type="text" id="timeInput5">
+          </form>
+          <button class="cancel">Cancel</button>
+          <button class="submit" onclick="submission(5)">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* The Create Button */
+      .create{
+        text-decoration: none;
+        position:relative;
+        left:46%;
+        top:25%;
+      }
+
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        height: 80%;
+      }
+
+      /* Dropdown Button */
+      .dropdown_button{
+        text-decoration: none;
+      }
+
+      /* Dropdown Options */
+      .dropdown_content{
+        text-decoration: none;
+        position: absolute;
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .cancel{
+        text-decoration: none;
+        position:relative;
+        left: 10%;
+        top: 80%;
+      }
+
+      /*The Submit Buttom */
+      .submit{
+        text-decoration: none;
+        position:relative;
+        left: 80%;
+        top: 80%;
+      }
+    </style>
+
+    <script>
+      // Get the modal
+      var modal;
+
+      // Get the button that opens the modal
+      var create = document.getElementsByClassName("create");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // Get the submit that closes the modal
+      var submit = document.getElementsByClassName("submit")[0];
+
+      // Get the cancel that closes the modal
+      var cancel = document.getElementsByClassName("cancel")[0];
+
+      // When the user clicks the button, open the modal 
+      function creation(cardNum) {
+        modal = document.getElementById("myModal" + cardNum); // Get the modal
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      // Handles the data from the dropdown location
+      function setLocation(cardNum) {
+        locationName = document.getElementById("locations" + cardNum).value;
+        return locationName;
+      }
+
+      // Handles the data from the Event Time
+      function setTime(cardNum) {
+        eventTime = document.getElementById("timeInput" + cardNum).value;
+        return eventTime;
+      }
+
+      // Handles the submission of the information and takes in a parameter for the number of each card
+      function submission(cardNum) {
+        const locationText = document.getElementById("location" + cardNum);
+        const eventText = document.getElementById("event" + cardNum);
+        const temperatureText = document.getElementById("temperature" + cardNum);
+        const sforcastText = document.getElementById("sforecast" + cardNum);
+        console.log(`sforcast${cardNum}`)
+        const windText = document.getElementById("wind" + cardNum);
+        
+        // Stores the user input
+        var locationName;
+        var eventTime;
+
+        // Stores the Weather API input
+        var temperatureVal;
+        var sforcastVal;
+        var windSpeedVal;
+        var windDirectionVal;
+
+        modal.style.display = "none";
+        locationName = setLocation(cardNum);
+        locationText.textContent = "Location: " + locationName;
+        eventTime = setTime(cardNum);
+        eventText.textContent = "Event Time: " + eventTime;
+        //[EDIT]: Implement data
+        if(locationName == "college_station") {
+          sforcastVal = setSforcast(cardNum, "27","133")
+        }
+        else if(locationName == "bryan") {
+          sforcastVal = setSforcast(cardNum, "68","92")
+        }
+        else {
+          sforcastVal = setSforcast(cardNum, "87","112")
+        }
+
+        // temperatureVal = setTemperature(cardNum);
+        temperatureText.textContent = "Temperature: " + temperatureVal;
+        // sforcastVal = setSforcast(cardNum);
+        sforcastText.textContent = "Short Forcast: " + sforcastVal;
+        // windSpeedVal = setWindSpeed(cardNum);
+        windDirectionVal = setWindDirection(cardNum);
+        windText.textContent = "Wind Speed: " + windSpeedVal + " " + windDirectionVal;
+      }
+
+      // When the user clicks on "Cancel", close the modal
+      function canceling() {
+        modal.style.display = "none";
+      }
+
+      // Sets the temperature, short forcast, and windspeed values from Weather API
+      //[EDIT HERE]: Peter, edit this part for setting the weather
+      function setTemperature(cardNum) {
+        temperatureVal = 1;
+        return temperatureVal;
+      }
+      
+      function setSforcast(cardNum,x, y) {
+        sforcastVal = wetrep(cardNum, x, y);
+        console.log(sforcastVal)
+        return sforcastVal;
+      }
+
+      function setWindSpeed(cardNum) {
+        windSpeedVal = 1;
+        return windSpeedVal;
+      }
+
+      function setWindDirection(cardNum) {
+        windDirectionVal = 1;
+        return windDirectionVal;
+      }
+
+
+    </script>
+
+    <script>
+    //Check long detail
+        function wetrep(cardNum,x,y) {
+          // let a = string(x);
+          // let b = string(y);
+          console.log("Hello")          
+          axios({
+            method: 'get',
+            url: 'https://api.weather.gov/gridpoints/TOP/68,92/forecast',
+            // url: `https://api.weather.gov/gridpoints/TOP/${x},${y}/forecast`,
+          })
+          .then(function (response) {
+            console.log("Hello2")
+            apiresponse = response.data;
+          }).then(() => {
+            console.log(apiresponse.properties.periods[0].shortForecast)
+            //let wetrep = document.getElementById("sforcast" + cardNum)
+            //wetrep.innerHTML = apiresponse.properties.periods[0].shortForecast
+            const test22 = String(apiresponse.properties.periods[0].shortForecast)
+            console.log(test22)
+            return test22
+
+            //const wetrep = apiresponse.properties.periods[0].detailedForecast;
+            //cosole.log(wetrep)
+            //return wetrep
+          })
+        }
+    
+    </script>
+
+    <!-- <script>
+    //Check temp
+          function weather() {
+              let a = document.getElementById("lat").value
+              let b = document.getElementById("long").value
+            axios({
+              method: 'get',
+              url: `https://api.weather.gov/gridpoints/TOP/${a},${b}/forecast`,
+            })
+            .then(function (response) {
+              apiresponse = response.data;
+            }).then(() => {
+              //console.log(apiresponse.properties.periods[0].temperature)
+              let weather = document.getElementById("weather")
+              weather.innerHTML = apiresponse.properties.periods[0].temperature
+            })
+          }
+      
+      </script> -->
+
+<!-- <script>
+  //Check wind speed
+        function windspeed() {
+            let a = document.getElementById("lat").value
+            let b = document.getElementById("long").value
+          axios({
+            method: 'get',
+            url: `https://api.weather.gov/gridpoints/TOP/${a},${b}/forecast`,
+          })
+          .then(function (response) {
+            apiresponse = response.data;
+          }).then(() => {
+            //console.log(apiresponse.properties.periods[0].temperature)
+            let windspeed = document.getElementById("windspeed")
+            windspeed.innerHTML = apiresponse.properties.periods[0].windSpeed
+          })
+        }
+    
+    </script> -->
+
+<!-- <script>
+  //Check wind dir
+        function winddirection() {
+            let a = document.getElementById("lat").value
+            let b = document.getElementById("long").value
+          axios({
+            method: 'get',
+            url: `https://api.weather.gov/gridpoints/TOP/${a},${b}/forecast`,
+          })
+          .then(function (response) {
+            apiresponse = response.data;
+          }).then(() => {
+            //console.log(apiresponse.properties.periods[0].temperature)
+            let windspeed = document.getElementById("windspeed")
+            windspeed.innerHTML = apiresponse.properties.periods[0].windDirection
+          })
+        }
+    
+    </script> -->
+
+  </body>
+</html>
